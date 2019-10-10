@@ -1,0 +1,7 @@
+
+*.out
+*.sim
+*.pbd
+*.pbi
+assignment01/HelloWorld/Debug/*
+assignment01/HelloWorld/settings/*
