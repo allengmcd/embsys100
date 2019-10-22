@@ -1,4 +1,4 @@
-Allen McDermott
+Allen McDermott -
 Assignment 02
 
 1. 
