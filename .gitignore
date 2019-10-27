@@ -14,9 +14,17 @@ assignment01/HelloWorld/Debug/*
 assignment01/HelloWorld/settings/*
 assignment02/HelloWorld/Debug/*
 assignment02/HelloWorld/settings/*
+assignment03/Debug/*
+assignment03/settings/*
 Debug/*
 Module2Demo/HelloWorld/Debug/*
 Module2Demo/HelloWorld/settings/*
 Module2Demo/settings/*
 Module2Demo/Debug/*
+Module3/settings/*
+Module3/Debug/*
 settings/*
+*.eww
+*.dep
+assignment01/HelloWorld/HelloWorld.eww
+assignment01/HelloWorld/HelloWorld.dep
