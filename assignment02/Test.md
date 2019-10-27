@@ -1,6 +1,3 @@
-Allen McDermott -
-Assignment 02
-
 1. 
    1. -2147483648.
    1. 0x80000000.
