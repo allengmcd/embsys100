@@ -1,0 +1,2 @@
+1. Morse code is a way to represent letters and numbers with Long and short signals. 
+2. It was invented as a way to have quick communication between long distances.
