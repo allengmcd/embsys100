@@ -10,10 +10,6 @@
 
 #define GPIOA (1<<5)
 
-void stack_init(void);
-int stack_put(char data);
-int stack_get(char* data);
-
 volatile int counter=0;
 
 void TestStack()
