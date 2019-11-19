@@ -1,3 +1,6 @@
+#include "stack.h"
+#include <stdio.h>
+
 #define RCC_BASE 0x40023800
 #define RCC_AHB1ENR (*((unsigned int*)(RCC_BASE + 0x30)))
 
@@ -8,6 +11,32 @@
 #define GPIOA (1<<5)
 
 volatile int counter=0;
+
+void TestStack()
+{
+    int a = 1, b =2, c = 3, d = 4, error = 1, pop = 1;
+    stack_init();
+    error = stack_push(a);
+    printf("Result: %d\n", error);
+    error = stack_push(b);
+    printf("Result: %d\n", error);
+    error = stack_push(c);
+    printf("Result: %d\n", error);
+    error = stack_push(d);
+    printf("Result: %d\n", error);
+    error = stack_pop(&pop);
+    printf("Result Error: %d\n", error);
+    printf("Result: %d\n", pop);
+    error = stack_pop(&pop);
+    printf("Result Error: %d\n", error);
+    printf("Result: %d\n", pop);
+    error = stack_pop(&pop);
+    printf("Result Error: %d\n", error);
+    printf("Result: %d\n", pop);
+    error = stack_pop(&pop);
+    printf("Result Error: %d\n", error);
+    printf("Result: %d\n", pop);
+}
 
 int SumFive(int one, int two, int three, int four, int five)
 {
