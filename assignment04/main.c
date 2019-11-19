@@ -10,6 +10,10 @@
 
 #define GPIOA (1<<5)
 
+void stack_init(void);
+int stack_put(char data);
+int stack_get(char* data);
+
 volatile int counter=0;
 
 void TestStack()
@@ -55,6 +59,7 @@ int CallSumFive()
 
 void main(void)
 {
+    TestStack();
     CallSumFive();
     // RCC Base Address: 0x40023800
     // RCC AHB1 peripheral clock enable register (RCC_AHB1ENR)
