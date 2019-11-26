@@ -1,0 +1,12 @@
+1.
+	a. It pushes the local variables. In this case I had 4 variables, 2 ints and 2 pointers to those ints. The main function will put the parameters into registers R0 and R1.
+
+	b. R0 => 0x200003EC, R1 => 0x00000000
+
+2.
+
+	f. The program was getting stuck on the PrintString innside the assembly
+
+3.
+
+4.

@@ -53,7 +53,7 @@ int main()
   int test = divAsm(8);
   
   char a = 'a';
-  char b = 'a';
+  char b = 'b';
   
   int outputTest = swapCharsAsm(&a, &b);
   

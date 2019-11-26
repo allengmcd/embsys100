@@ -6,7 +6,7 @@ Description     : Assembly language function for square
     EXTERN PrintString  // PrintString is defined outside this file.
     EXTERN myCstr       // myCstr defined outside this file.
     
-    PUBLIC swapCharsAsm       // Exports symbols to other modules
+    PUBLIC divAsm       // Exports symbols to other modules
                         // Making sqrAsm available to other modules.
     
 // Code is split into logical sections using the SECTION directive.
@@ -39,32 +39,24 @@ Description     : Assembly language function for square
                         // Subsequent instructions are assembled as THUMB instructions
     
 /*******************************************************************************
-Function Name   : sqrAsm
+Function Name   : divAsm
 Description     : Calls C code to print a string; 
-                  computes the square of its input argument
-C Prototype     : int sqrAsm(val)
+                  divides the input by 2
+C Prototype     : int divAsm(val)
                 : Where val is the value to calculate it's square
 Parameters      : R0: Address of val
 Return value    : R0
 *******************************************************************************/  
   
-swapCharsAsm:
-        PUSH {R4} // save the input argument and return address
-	MOVS R2, R0     // Move value in R0 to R2
-	LDRB R3, [R2]   // Put value in address of R2 into R3
-	LDRB R0, [R1]   // Put value in address of R1 into R0
-	STRB R0, [R2]   // Store value in address of R2 into R0
-	STRB R3, [R1]   // Store value in address of R1 into R3
-	LDRB R0, [R2]   // Put value in address of R2 into R0
-	LDRB R4, [R1]   // Put value in address of R1 into R4
-	CMP R0, R4      // Check if R0 and R4 are equal         
-	BNE.N neql      // Jump to neql if not equal
-	MOVS R0, #0     // Set reuturn value to 0
-	B.N ret         // Jump to ret
-neql:                   // Label neql, its supposed to stand for not equal        
-	MOVS R0, #1     // Set return 
-ret:                    // Label for the return statement
-	POP {R4}        // Restore R4
-	BX LR           // return (with function result in R0)
+divAsm
+    PUSH {R0,LR}        // save the input argument and return address
+    LDR R0,=myCstr      // load (global) address of address of string into R0
+    LDR R0,[R0]         // load address of string into R0
+    BL  PrintString     // call PrintString to print the string
+    POP {R0,LR}         // Restore R0 and LR
+    MOV R1, R0          // R1 = R0
+    MOVS R2,#2          // R2 = 2        
+    SDIV R0, R1, R2     // R0 = R1 / R2 
+    BX LR               // return (with function result in R0)
 
     END
