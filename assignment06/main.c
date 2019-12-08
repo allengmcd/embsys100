@@ -30,7 +30,6 @@ void Problem1()
         counter=0;
 
         delay(DELAY_DURATION);
-        GPIOA->ODR |=  (*((unsigned int*)(0x40020014)));
         GPIOA->ODR |= (unsigned int)(1<<5);
             
         delay(DELAY_DURATION);
