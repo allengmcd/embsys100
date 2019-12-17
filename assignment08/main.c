@@ -10,11 +10,11 @@
 uint32_t LED_Brightness;
 volatile uint32_t msTicks = 0;
 
-void delay(uint32_t delayInMilliseconds)
+void delay(uint32_t delayAmount)
 {
     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;     
     SysTick->VAL = 0;                            
-    msTicks = delayInMilliseconds;           
+    msTicks = delayAmount;           
     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;     
     
     while (msTicks != 0);
